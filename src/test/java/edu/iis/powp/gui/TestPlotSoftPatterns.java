@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 
 import edu.iis.client.plottermagic.ClientPlotter;
 import edu.iis.client.plottermagic.IPlotter;
+import edu.iis.powp.adapter.LinePlotterSimulatorAdapter;
 import edu.iis.powp.adapter.PlotterSimulatorAdapter;
 import edu.iis.powp.app.Application;
 import edu.iis.powp.app.Context;
@@ -16,6 +17,7 @@ import edu.iis.powp.events.predefine.SelectChangeVisibleOptionListener;
 import edu.iis.powp.events.predefine.SelectTestFigureOptionListener;
 import edu.kis.powp.drawer.panel.DefaultDrawerFrame;
 import edu.kis.powp.drawer.panel.DrawPanelController;
+import edu.kis.powp.drawer.shape.LineFactory;
 
 
 public class TestPlotSoftPatterns
@@ -46,8 +48,14 @@ public class TestPlotSoftPatterns
 		context.addDriver("Client Plotter", clientPlotter);
 		Application.getComponent(DriverManager.class).setCurrentPlotter(clientPlotter);
 		
-		IPlotter plotter = new PlotterSimulatorAdapter();
-		context.addDriver("Plotter Simulator", plotter);
+		IPlotter defaultPlotter = new PlotterSimulatorAdapter();
+		IPlotter basicLinePlotter = new LinePlotterSimulatorAdapter(LineFactory.getBasicLine());
+		IPlotter dottedLinePlotter = new LinePlotterSimulatorAdapter(LineFactory.getDottedLine());
+		IPlotter specialLinePplotter = new LinePlotterSimulatorAdapter(LineFactory.getSpecialLine());
+		context.addDriver("Default Plotter Simulator", defaultPlotter);
+		context.addDriver("Basic Line Plotter Simulator", basicLinePlotter);
+		context.addDriver("Dotted Line Plotter Simulator", dottedLinePlotter);
+		context.addDriver("Special Line Plotter Simulator", specialLinePplotter);
 
 		context.updateDriverInfo();
 	}
