@@ -1,5 +1,6 @@
 package edu.iis.powp.drawer;
 
+import edu.iis.client.plottermagic.preset.FiguresJoe;
 import edu.kis.powp.drawer.panel.DefaultDrawerFrame;
 import edu.kis.powp.drawer.panel.DrawPanelController;
 import edu.kis.powp.drawer.shape.ILine;
