@@ -2,7 +2,7 @@ package edu.iis.powp.command;
 
 import edu.iis.client.plottermagic.IPlotter;
 
-public class CommandSetPosition implements PlotterCommand {
+public class CommandSetPosition implements IPlotterCommand {
 
 	private int x,y;
 	
